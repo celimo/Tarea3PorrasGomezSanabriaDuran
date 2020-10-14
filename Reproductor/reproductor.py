@@ -14,7 +14,7 @@ import time
 # t1 / Indica el tiempo inicial en que se empezó a ejecutar el método
 
 # Función para reproducir un sonido
-def reproducirAudio(nombre, cant, t1)):
+def reproducirAudio(nombre, cant, t1):
 	mixer.init()
 	mixer.music.load(nombre)  # Se carga el archivo con la dirección
 	mixer.music.play(cant)  # Se inicia la reproducción cierta cantidad
