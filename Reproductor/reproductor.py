@@ -20,6 +20,10 @@ import time
 
 
 # Función para reproducir un sonido
+# Parámetros de entrada:
+# nombre / Dirección del archivo a reproducir
+# cant / Cantidad de veces a reproducir el archivo
+# timer / Indica si se imprime el tiempo de ejecución
 def reproducirAudio(nombre, cant, timer):
 	mixer.init()
 	mixer.music.load(nombre)  # Se carga el archivo con la dirección
