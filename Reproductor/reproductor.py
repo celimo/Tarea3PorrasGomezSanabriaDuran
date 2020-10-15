@@ -1,37 +1,49 @@
-# Programa para reproducir un audio indicando la ubicación del archivo y la cantidad de veces que se desea reproducir
+# Programa para reproducir un audio indicando la ubicación del
+# archivo y la cantidad de veces que se desea reproducir
 
-#Librerias
+# Librerias
 import argparse
 from pygame import mixer
 import time
 
-# Variables
+# == Variables ==
 # Globales
 # args / Objeto con los parámetros que se indican al ejecutar el programa
+# args.nombre / Dirección del audio
+# args.cant / Indica la cantidad de veces que se reproduce el audio
+# args.time / Indica si se reproduce o no el tiempo de ejecución
 # Local de la función reproducirAudio
 # nombre / Contiene la dirección de la canción a reproducir
 # cant / Indica cuantas veces se debe reproducir la canción
 # t1 / Indica el tiempo inicial en que se empezó a ejecutar el método
+# t2 / Tiempo total de ejecución
+
 
 # Función para reproducir un sonido
-def reproducirAudio(nombre, cant, t1):
+def reproducirAudio(nombre, cant, timer):
 	mixer.init()
 	mixer.music.load(nombre)  # Se carga el archivo con la dirección
 	mixer.music.play(cant)  # Se inicia la reproducción cierta cantidad
+	if(timer):
+		t1 = time.time()
 	if(cant > 0):  # Siempre que la cantidad sea mayor que cero se reproduce
-		while (cant > 0): 
+		while (cant > 0):
 			mixer.music.play()  # Se inicia la reproducción cierta cantidad
-			while mixer.music.get_busy():  # Solo sirve para que no se cierre el programa
+			while mixer.music.get_busy():  # Evita cerrar el programa
 				time.time()
 			cant -= 1
-	t2=time.time() - t1
-	print("Tiempo de ejecucion:", t2, "segundos")
+	if(timer):
+		t2 = time.time() - t1
+		print("Tiempo de ejecucion:", t2, "segundos")
+
 
 # Parte del argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("nombre", help ="Nombre del archivo .mp3", type=str)
-parser.add_argument("cant", help ="Cantidad de reproducciones de la canción", type=int)
-parser.add_argument("--time", default=time.time())
+parser.add_argument("nombre", help="Nombre del archivo .mp3", type=str)
+parser.add_argument("cant", help="Cantidad de reproducciones de la canción",
+type=int)
+parser.add_argument("--time", help="Indica si se ocupa el tiempo de ejecucion",
+action="store_true")
 args = parser.parse_args()
 
 reproducirAudio(args.nombre, args.cant, args.time)
