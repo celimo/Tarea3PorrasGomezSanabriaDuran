@@ -3,7 +3,7 @@
 
 # Librerias
 import argparse
-from pygame import mixer
+from playsound import playsound
 import time
 
 # == Variables ==
@@ -25,16 +25,11 @@ import time
 # cant / Cantidad de veces a reproducir el archivo
 # timer / Indica si se imprime el tiempo de ejecución
 def reproducirAudio(nombre, cant, timer):
-	mixer.init()
-	mixer.music.load(nombre)  # Se carga el archivo con la dirección
-	mixer.music.play(cant)  # Se inicia la reproducción cierta cantidad
 	if(timer):
 		t1 = time.time()
 	if(cant > 0):  # Siempre que la cantidad sea mayor que cero se reproduce
 		while (cant > 0):
-			mixer.music.play()  # Se inicia la reproducción cierta cantidad
-			while mixer.music.get_busy():  # Evita cerrar el programa
-				time.time()
+			playsound(nombre)
 			cant -= 1
 	if(timer):
 		t2 = time.time() - t1
