@@ -70,4 +70,9 @@ parser.add_argument("-t", "--time", help="Indica si se ocupa el tiempo de ejecuc
 args = parser.parse_args()
 
 # Inicio del programa
-leerArchivo(args.nombre, args.time)
+def contTexto():
+    # Se llama a la función que lee el archivo
+    leerArchivo(args.nombre, args.time)
+
+if __name__ == '__main__':
+    contTexto()

@@ -41,8 +41,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument("nombre", help="Nombre del archivo .mp3", type=str)
 parser.add_argument("cant", help="Cantidad de reproducciones de la canción",
 type=int)
-parser.add_argument("--time", help="Indica si se ocupa el tiempo de ejecucion",
+parser.add_argument("-t", "--time", help="Indica si se ocupa el tiempo de ejecucion",
 action="store_true")
 args = parser.parse_args()
 
-reproducirAudio(args.nombre, args.cant, args.time)
+def reproductor():
+	# Se llama a la función que reproduce el sonido
+	reproducirAudio(args.nombre, args.cant, args.time)
+
+if __name__ == '__main__':
+	reproductor()

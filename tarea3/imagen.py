@@ -37,7 +37,7 @@ def escalar_imagen(x, y, nombre):
 
 	# Muestra la imagen en pantalla
 	escala.show()
-	
+
 	# Calcula el tiempo de ejecucion del programa
 	if (args.time):
 		t2 = time.time() - t1
@@ -50,7 +50,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("x", help="factor multiplicativo de la escala", type=int)
 parser.add_argument("y", help="factor que divide la escala", type=int)
 parser.add_argument("nombre", help="nombre de la imagen con .jpg", type=str)
-parser.add_argument("--time", action='store_true',
+parser.add_argument("-t", "--time", action='store_true',
 					help="Es el tiempo que tarda la ejecucion")
 args = parser.parse_args()
 
@@ -58,8 +58,6 @@ args = parser.parse_args()
 def imagen():
 	# Se llama a la funcion escalar imagen
 	escalar_imagen(args.x, args.y, args.nombre)
-	
+
 if __name__=='__main__':
 	imagen()
-
-
