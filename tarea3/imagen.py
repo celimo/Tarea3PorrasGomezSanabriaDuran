@@ -41,7 +41,7 @@ def escalar_imagen(x, y, nombre):
 	# Calcula el tiempo de ejecucion del programa
 	if (args.time):
 		t2 = time.time() - t1
-		print('tiempo de ejecucion', t2)
+		print('tiempo de ejecucion', t2,"segundos")
 
 
 # Parte del argparse
