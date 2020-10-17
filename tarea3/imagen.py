@@ -19,6 +19,8 @@ import time
 # y / Escalado "y" de la image
 # nombre / Nombre del archivo .jpg a escalar
 def escalar_imagen(x, y, nombre):
+	if (args.time):
+		t1 = time.time()
 	imagen = Image.open(nombre)  # Se carga la imagen
 	tamano = imagen.size  # Se obtiene el array(ancho,altura)
 	print(tamano)
@@ -35,6 +37,11 @@ def escalar_imagen(x, y, nombre):
 
 	# Muestra la imagen en pantalla
 	escala.show()
+	
+	# Calcula el tiempo de ejecucion del programa
+	if (args.time):
+		t2 = time.time() - t1
+		print('tiempo de ejecucion', t2)
 
 
 # Parte del argparse
@@ -47,13 +54,12 @@ parser.add_argument("--time", action='store_true',
 					help="Es el tiempo que tarda la ejecucion")
 args = parser.parse_args()
 
-if (args.time):
-	t1 = time.time()
 
-# Se llama a la funcion escalar imagen
-escalar_imagen(args.x, args.y, args.nombre)
+def imagen():
+	# Se llama a la funcion escalar imagen
+	escalar_imagen(args.x, args.y, args.nombre)
+	
+if __name__=='__main__':
+	imagen()
 
-# Calcula el tiempo de ejecucion del programa
-if (args.time):
-	t2 = time.time() - t1
-	print('tiempo de ejecucion', t2)
+
