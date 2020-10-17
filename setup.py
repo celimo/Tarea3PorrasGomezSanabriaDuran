@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    scripts=['tarea3/imagen.py','tarea3/contTexto.py','tarea3/reproductor.py'],
+    scripts=['bin/imagen','bin/contTexto','bin/reproductor'],
     name='tarea3', 
     version='1.1',
     author='Duran,Gomez,Sanabria,Porras',
