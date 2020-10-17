@@ -65,7 +65,7 @@ def leerArchivo(nombre, tiempo):
 # Parte del argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("nombre", help="Nombre del archivo .txt", type=str)
-parser.add_argument("--time", help="Indica si se ocupa el tiempo de ejecucion",
+parser.add_argument("-t", "--time", help="Indica si se ocupa el tiempo de ejecucion",
                     action="store_true")
 args = parser.parse_args()
 
