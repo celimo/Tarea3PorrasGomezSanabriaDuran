@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+
+from tarea3.reproductor import*
+
+reproductor()
